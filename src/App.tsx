@@ -1,8 +1,17 @@
+import { Demo, Hero } from '@/components'
+
 function App() {
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
+    <main>
+      <div className="main">
+        <div className="gradient" />
+      </div>
+
+      <div className="app">
+        <Hero />
+        <Demo />
+      </div>
+    </main>
   )
 }
 
