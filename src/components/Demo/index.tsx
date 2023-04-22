@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 import { linkIcon } from '@/assets'
+import { useLazyGetSummaryQuery } from '@/services/article'
 
 export const Demo = () => {
   const [article, setArticle] = useState({
@@ -8,8 +9,16 @@ export const Demo = () => {
     summary: ''
   })
 
-  const handleSubmit = () => {
-    alert('Submited')
+  const [getSummary] = useLazyGetSummaryQuery()
+
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault()
+    const { data } = await getSummary({ articleUrl: article.url })
+
+    if (data) {
+      const newArticle = { ...article, summary: data.summary }
+      setArticle(newArticle)
+    }
   }
   return (
     <section className="mt-16 w-full max-w-xl">
