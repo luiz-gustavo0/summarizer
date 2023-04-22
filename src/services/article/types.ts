@@ -1,3 +1,3 @@
-export type Article = {
+export type Summary = {
   summary: string
 }
