@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Summary } from './types'
 
 const API_KEY = import.meta.env.VITE_RAPID_API_KEY
-const API_HOST = import.meta.env.VITE_RAPID_API_HOST
+const API_HOST = 'article-extractor-and-summarizer.p.rapidapi.com'
 
 export const articleApi = createApi({
   reducerPath: 'articleApi',
